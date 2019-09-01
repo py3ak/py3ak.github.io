@@ -4,14 +4,14 @@ function d(a) {
 
 function arredonda (v) {
 	//return Math.round( v * 100 + Number.EPSILON ) / 100;
-	return v.toFixed(3);
+	return v.toFixed(2);
 }
 
 function calcula() {
 	
-	var frequencia =  $("#inp-freq").val();
-	var potencia   =  $("#inp-pot").val();
-	var ganho      =  $("#inp-ganho").val();
+	var frequencia =  parseFloat($("#inp-freq").val());
+	var potencia   =  parseFloat($("#inp-pot").val());
+	var ganho      =  parseFloat($("#inp-ganho").val());
 
 	var erp = (10 ** ( ganho * 0.1)) * potencia;
 	
@@ -22,22 +22,31 @@ function calcula() {
 	}
 
 	if (frequencia > 10 && frequencia < 400) {
-		dis = -1;
+		dis = (Math.sqrt(erp)) * 0.409;
 	}
 	
 	if (frequencia > 400) {
-		dis = -1;
+		dis = (Math.sqrt(erp / frequencia)) * 8.16;
 	}
-	
-	var chk = $("#chk-prec").prop('checked');
-	
-	if (chk) {
-		erp = arredonda(erp);
-		dis = arredonda(dis);
-	}
+	if (frequencia > 2000) {
+		
+		$("#res-erp").html("");
+		$("#res-dis").html("");
 
-	$("#res-erp").html(erp);
-	$("#res-dis").html(dis);
+	} else {
+		
+		var chk = $("#chk-prec").prop('checked');
+	
+		if (chk) {
+			erp = arredonda(erp);
+			dis = arredonda(dis);
+		}
+
+		$("#res-erp").html(erp);
+		$("#res-dis").html(dis);
+	}
+	
+	
 }
 
 
