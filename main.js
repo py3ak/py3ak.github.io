@@ -17,11 +17,11 @@ function calcula() {
 	
 	var dis = 0;
 
-	if (frequencia < 10){
+	if (frequencia <= 10){
 		dis = (Math.sqrt(erp * frequencia)) * 0.129;;
 	}
 
-	if (frequencia > 10 && frequencia < 400) {
+	if (frequencia > 10 && frequencia <= 400) {
 		dis = (Math.sqrt(erp)) * 0.409;
 	}
 	
@@ -56,7 +56,7 @@ $(function () {
 		$(this).val("");
 	});
 	
-	$("input").keyup(function(e) {
+	$("input").change(function(e) {
 		calcula();
 	});
 	$("#chk-prec").change(function(e){

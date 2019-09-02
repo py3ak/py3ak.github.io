@@ -16,8 +16,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col">
-				<h1>PY3AK Adriano</h1>
+				<h1>CALCULADOR PARA ATENDER A NORMA DE RADIAÇÃO NÃO IONIZANTE</h1>
 				<hr>
+				<p>
+				Este calculador visa indicar a distância mínima entre público em geral e o sistema irradiante da estação transmissora,
+				na área de seu lóbulo máximo de irradiação.
+				A observação da distância maior ou igual a indicada, mostra que a estação está em acordo
+				com a <a href="https://www.anatel.gov.br/legislacao/resolucoes/2018/1161-resolucao-700">Resolução nº 700</a> da Anatel.
+				Para este cálculo, foram empregadas as fórmulas publicadas nesta Resolução.</p>
 			</div>
 			
 		</div>
@@ -28,25 +34,25 @@
 				<form id="mainform" >
 				 
 					<div class="form-group">
-						<label for="inp-freq">Frequência em Mega Hertz:</label>
+						<label for="inp-freq">FREQUÊNCIA EM MHz:</label>
 						<input type="number" class="form-control" id="inp-freq" aria-describedby="inp-freq-hlp" required value="0">
-						<small id="inp-freq-hlp" class="form-text text-muted">Digite a frequência da antena pretendida em MHz.</small>
+						<small id="inp-freq-hlp" class="form-text text-muted">Digite a frequência a ser utilizada, em MHz.</small>
 					</div>
 
 					<div class="form-group">
-						<label for="inp-pot">Potência do Equipamento:</label>
+						<label for="inp-pot">POTÊNCIA EM WATTS:</label>
 						<input type="number" class="form-control" id="inp-pot" aria-describedby="inp-pot-hlp" required value="0">
-						<small id="inp-pot-hlp" class="form-text text-muted">Digite a potência de seu equipamento</small>
+						<small id="inp-pot-hlp" class="form-text text-muted">Digite a potência do transmissor, em Watts.</small>
 					</div>
 					
 					<div class="form-group">
-						<label for="inp-ganho">Ganho em Decibéis da Antena:</label>
+						<label for="inp-ganho">GANHO DA ANTENA EM dBd</label>
 						<input type="number" class="form-control" id="inp-ganho" aria-describedby="inp-ganho-hlp" required value="0">
-						<small id="inp-ganho-hlp" class="form-text text-muted">Digite o ganho da antena</small>
+						<small id="inp-ganho-hlp" class="form-text text-muted">Digite o ganho máximpo do sistema irradiante, em decibéis em relação dipolo de meia onda (dBd).</small>
 					</div>
 					<div class="form-group form-check">
 						<input type="checkbox" class="form-check-input" id="chk-prec" checked>
-						<label class="form-check-label" for="chk-prec">Arredondar</label>
+						<label class="form-check-label" for="chk-prec">Arredondar o valor.</label>
 					</div>
 							 
 				</form>
@@ -56,7 +62,7 @@
 			<div class="col-md-6">
 				<h1>Resultado:</h1>				
 				<h3> Potência ERP: <span id="res-erp"></span> Watts</h3>
-				<h3> Distância: <span id="res-dis"></span> metros</h3>
+				<h3> Distância: <span id="res-dis"></span> metro(s)</h3>
 			</div>
 		</div>
 	</div>
