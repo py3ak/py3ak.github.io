@@ -52,6 +52,10 @@ function calcula() {
 
 $(function () {
 	
+	$("input").focusin(function(e) {
+		$(this).val("");
+	});
+	
 	$("input").keyup(function(e) {
 		calcula();
 	});
